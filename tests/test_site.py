@@ -240,6 +240,18 @@ def test_current_pricing_replaces_old_pricing():
     assert "From $650" in text("index.html")
 
 
+def test_delivery_claims_are_accurate():
+    pages = " ".join(text(name).lower() for name in ALL_PAGES)
+    assert "never edited in place" not in pages
+    assert "recorded" not in pages
+    assert "two verified diffs" not in pages
+    for name in ("index.html", "pricing.html"):
+        assert "two verified sample diffs" in text(name).lower(), name
+    for name in ("index.html", "about.html"):
+        assert "your original checkout is never modified" in text(name).lower(), name
+    assert "network-off docker sandbox" in text("index.html").lower()
+
+
 def test_seo_metadata_and_canonicals():
     for name in PAGES:
         doc = parse(name)

@@ -92,7 +92,7 @@
           "name": "Do you change my code?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. I copy the repository into a sandbox and work there. The report includes two verified sample diffs. Applying them is your call."
+            "text": "No. Your original checkout is never modified. I work on a copy in a sandbox and include two verified sample diffs as separate files. Applying them is your call."
           }
         },
         {
@@ -108,7 +108,7 @@
           "name": "How is my code handled?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Client code is copied into a sandbox, never edited in place. Job data is deleted 30 days after delivery unless you ask me to keep it."
+            "text": "Your original checkout is never modified. Analysis runs on a copy in a network-off Docker sandbox. Job data is deleted 30 days after delivery unless you ask me to keep it."
           }
         },
         {
@@ -164,8 +164,8 @@
 <tbody>
 <tr><td data-label="Deliverable">Findings register</td><td data-label="Detail">Every issue with path, line, severity, and effort</td></tr>
 <tr><td data-label="Deliverable">Migration sequence</td><td data-label="Detail">Ordered quick wins, then structural work</td></tr>
-<tr><td data-label="Deliverable">Two verified diffs</td><td data-label="Detail">Real changes, tested against your suite</td></tr>
-<tr><td data-label="Deliverable">Walkthrough</td><td data-label="Detail">30 minutes, recorded</td></tr>
+<tr><td data-label="Deliverable">Two verified sample diffs</td><td data-label="Detail">Real changes, tested against your suite</td></tr>
+<tr><td data-label="Deliverable">Walkthrough</td><td data-label="Detail">30 minutes, scheduled</td></tr>
 </tbody>
 </table>
 </div>
@@ -177,8 +177,8 @@
 </div>
 <ol class="steps">
 <li class="step"><h3>Send the repo</h3><p>Send a URL and the commit you care about. I confirm the tier and the price before you pay.</p></li>
-<li class="step"><h3>I run the audit</h3><p>Your code is copied into a sandbox. Tests run with the network off. Analysis is tree-sitter, not guesswork.</p></li>
-<li class="step"><h3>You get the report</h3><p>Findings cite a file and line. You get the sequence, two verified diffs, and a recorded walkthrough.</p></li>
+<li class="step"><h3>I run the audit</h3><p>Your code is copied into a network-off Docker sandbox. Analysis is tree-sitter, not guesswork.</p></li>
+<li class="step"><h3>You get the report</h3><p>Findings cite a file and line. You get the sequence, two verified sample diffs, and a 30-minute walkthrough.</p></li>
 </ol>
 </section>
 <section class="section">
@@ -189,9 +189,9 @@
 <div class="faq">
 <details><summary>What counts as a finding?</summary><p>A specific place in your repository where the migration will break or cost more than it should. Each finding cites a file and line, a severity, and an effort estimate.</p></details>
 <details><summary>Which stacks do you audit?</summary><p>Python and TypeScript, including Django, Flask, FastAPI, React, Next.js, and Node services. I do not take PHP, Ruby, or .NET work.</p></details>
-<details><summary>Do you change my code?</summary><p>No. I copy the repository into a sandbox and work there. The report includes two verified sample diffs. Applying them is your call.</p></details>
+<details><summary>Do you change my code?</summary><p>No. Your original checkout is never modified. I work on a copy in a sandbox and include two verified sample diffs as separate files. Applying them is your call.</p></details>
 <details><summary>What if you find nothing material?</summary><p>You get the evidence and a short note saying so. I do not invent findings to fill a report.</p></details>
-<details><summary>How is my code handled?</summary><p>Client code is copied into a sandbox, never edited in place. Job data is deleted 30 days after delivery unless you ask me to keep it.</p></details>
+<details><summary>How is my code handled?</summary><p>Your original checkout is never modified. Analysis runs on a copy in a network-off Docker sandbox. Job data is deleted 30 days after delivery unless you ask me to keep it.</p></details>
 <details><summary>How do I start?</summary><p>Email the repository URL and the commit you care about. I confirm scope and price before you pay.</p></details>
 </div>
 </section>
