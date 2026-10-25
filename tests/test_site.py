@@ -9,6 +9,7 @@ SITE = ROOT / "site" if (ROOT / "site").is_dir() else ROOT
 PAGES = ["index.html", "sample.html", "pricing.html", "about.html"]
 ALL_PAGES = PAGES + ["404.html"]
 BASE = "https://engida32.github.io/migration-audit-site/"
+SITE_PREFIX = "/migration-audit-site/"
 BANNED = ["supercharge", "unlock", "revolutionize", "game-changer", "seamless",
           "cutting-edge", "delve", "empower", "leverage", "synergy"]
 PALETTE = ("#f7f4ec", "#171512", "#a83a0f", "#d9d2c3", "#4a453d")
@@ -40,7 +41,6 @@ class Doc(HTMLParser):
         self.twitter = {}
         self.robots = []
         self.details = 0
-        self.base = None
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -96,8 +96,6 @@ class Doc(HTMLParser):
                 self.labelled_cells += 1
         if tag == "details":
             self.details += 1
-        if tag == "base":
-            self.base = attrs.get("href")
 
 
 def parse(name):
@@ -108,6 +106,13 @@ def parse(name):
 
 def text(name):
     return (SITE / name).read_text(encoding="utf-8")
+
+
+def resolve_ref(href):
+    if href.startswith(SITE_PREFIX):
+        rel = href[len(SITE_PREFIX):]
+        return SITE / (rel or "index.html")
+    return SITE / href
 
 
 def json_ld(name):
@@ -154,7 +159,7 @@ def test_internal_links_resolve():
         for href in parse(name).links:
             if href.startswith(("http", "mailto:", "#")):
                 continue
-            target = (SITE / href.split("#")[0]).resolve()
+            target = resolve_ref(href.split("#")[0]).resolve()
             assert target.is_file(), f"{name} -> {href}"
 
 
@@ -180,7 +185,7 @@ def test_stylesheets_resolve():
         doc = parse(name)
         assert doc.stylesheets, name
         for href in doc.stylesheets:
-            assert (SITE / href).is_file(), f"{name} -> {href}"
+            assert resolve_ref(href).is_file(), f"{name} -> {href}"
 
 
 def test_favicon_resolves():
@@ -188,7 +193,7 @@ def test_favicon_resolves():
         doc = parse(name)
         assert doc.icons, name
         for href in doc.icons:
-            assert (SITE / href).is_file(), f"{name} -> {href}"
+            assert resolve_ref(href).is_file(), f"{name} -> {href}"
 
 
 def test_no_executable_scripts_or_external_assets():
@@ -300,19 +305,17 @@ def test_404_is_real_and_noindex():
     doc = parse("404.html")
     assert doc.robots and "noindex" in doc.robots[0]
     assert not doc.canonicals
-    assert 'href="index.html"' in text("404.html")
+    assert 'href="/migration-audit-site/"' in text("404.html")
 
 
 def test_404_assets_resolve_from_deep_paths():
     doc = parse("404.html")
-    assert doc.base == "/migration-audit-site/"
+    assert 'href="#main"' in text("404.html")
     for ref in doc.refs:
         if ref.startswith(("mailto:", "#")):
             continue
-        assert not ref.startswith(("http://", "https://")), ref
-        joined = doc.base + ref
-        target = (SITE / joined[len(doc.base):]).resolve()
-        assert target.is_file(), ref
+        assert ref.startswith(SITE_PREFIX), ref
+        assert resolve_ref(ref).is_file(), ref
 
 
 def test_social_card_is_a_real_png():
