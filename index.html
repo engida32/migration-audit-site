@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migration Readiness Audit | Fixed-fee codebase migration audit</title>
+<meta name="description" content="A fixed-fee migration audit for Python and TypeScript codebases. Every finding cites a file and line, with an ordered plan and a test baseline you can reproduce.">
+<link rel="canonical" href="https://engida32.github.io/migration-audit-site/">
+<meta property="og:site_name" content="Migration Readiness Audit">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Migration Readiness Audit | Know what breaks first">
+<meta property="og:description" content="Fixed-fee migration audit for Python and TypeScript. File and line evidence, an ordered plan, and a reproducible test baseline.">
+<meta property="og:url" content="https://engida32.github.io/migration-audit-site/">
+<meta property="og:image" content="https://engida32.github.io/migration-audit-site/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Migration Readiness Audit: know what breaks before your framework does.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Migration Readiness Audit | Know what breaks first">
+<meta name="twitter:description" content="Fixed-fee migration audit for Python and TypeScript. File and line evidence, an ordered plan, and a reproducible test baseline.">
+<meta name="twitter:image" content="https://engida32.github.io/migration-audit-site/assets/og-card.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://engida32.github.io/migration-audit-site/#service",
+      "name": "Migration Readiness Audit",
+      "url": "https://engida32.github.io/migration-audit-site/",
+      "description": "A fixed-fee migration audit for Python and TypeScript codebases, with file and line evidence, an ordered plan, and a reproducible test baseline.",
+      "image": "https://engida32.github.io/migration-audit-site/assets/og-card.png",
+      "priceRange": "$650-$1,050",
+      "areaServed": "Worldwide",
+      "provider": {
+        "@type": "Person",
+        "name": "Engida",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Addis Ababa",
+          "addressCountry": "ET"
+        }
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Standard audit",
+          "price": "650",
+          "priceCurrency": "USD",
+          "description": "Up to 50,000 lines of code, delivered in five business days."
+        },
+        {
+          "@type": "Offer",
+          "name": "Large audit",
+          "price": "1050",
+          "priceCurrency": "USD",
+          "description": "50,001 to 150,000 lines of code, delivered in five business days."
+        },
+        {
+          "@type": "Offer",
+          "name": "Security add-on",
+          "price": "125",
+          "priceCurrency": "USD",
+          "description": "Security review included in the same report."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://engida32.github.io/migration-audit-site/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What counts as a finding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A specific place in your repository where the migration will break or cost more than it should. Each finding cites a file and line, a severity, and an effort estimate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which stacks do you audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Python and TypeScript, including Django, Flask, FastAPI, React, Next.js, and Node services. I do not take PHP, Ruby, or .NET work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you change my code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. I copy the repository into a sandbox and work there. The report includes two verified sample diffs. Applying them is your call."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if you find nothing material?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You get the evidence and a short note saying so. I do not invent findings to fill a report."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is my code handled?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Client code is copied into a sandbox, never edited in place. Job data is deleted 30 days after delivery unless you ask me to keep it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Email the repository URL and the commit you care about. I confirm scope and price before you pay."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap header-inner">
+<a class="wordmark" href="index.html">Migration Readiness <span>Audit</span></a>
+<nav>
+<a href="index.html" aria-current="page">Audit</a><a href="sample.html">Sample</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
+</nav>
+</div></header>
+<main id="main" class="wrap">
+<section class="hero">
+<div class="hero-copy">
+<p class="eyebrow">Fixed-fee code audit</p>
+<h1>Know what breaks before your framework does.</h1>
+<p class="lead">I read your repository, run your tests, and hand you a migration plan where every finding has a file and a line. Five business days. No retainer.</p>
+<p><a class="cta" href="mailto:engida32lishan@gmail.com?subject=Migration%20audit">Send me your repo</a></p>
+<ul class="proof">
+<li><strong>5 days</strong><span>from repo to report</span></li>
+<li><strong>File:line</strong><span>for every finding</span></li>
+<li><strong>From $650</strong><span>fixed fee, paid after scope</span></li>
+</ul>
+</div>
+<aside class="marginalia" aria-label="Example finding">
+<p><span class="finding-id">F-004</span> &middot; <span class="finding-path">app/legacy.py:12</span></p>
+<p>distutils removed in Python 3.12. This import stops the build.</p>
+<p>Effort: 0.5 day. Verified by the project's own test run.</p>
+</aside>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>What you get</h2>
+<p>One report, built to be used. Not a scorecard, not a slide deck. The evidence and the order of work.</p>
+</div>
+<div class="table-wrap">
+<table>
+<caption class="sr-only">What the audit delivers</caption>
+<thead><tr><th scope="col">Deliverable</th><th scope="col">Detail</th></tr></thead>
+<tbody>
+<tr><td data-label="Deliverable">Findings register</td><td data-label="Detail">Every issue with path, line, severity, and effort</td></tr>
+<tr><td data-label="Deliverable">Migration sequence</td><td data-label="Detail">Ordered quick wins, then structural work</td></tr>
+<tr><td data-label="Deliverable">Two verified diffs</td><td data-label="Detail">Real changes, tested against your suite</td></tr>
+<tr><td data-label="Deliverable">Walkthrough</td><td data-label="Detail">30 minutes, recorded</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>How it works</h2>
+<p>The audit is small on purpose. One repository, one commit, one report you can act on.</p>
+</div>
+<ol class="steps">
+<li class="step"><h3>Send the repo</h3><p>Send a URL and the commit you care about. I confirm the tier and the price before you pay.</p></li>
+<li class="step"><h3>I run the audit</h3><p>Your code is copied into a sandbox. Tests run with the network off. Analysis is tree-sitter, not guesswork.</p></li>
+<li class="step"><h3>You get the report</h3><p>Findings cite a file and line. You get the sequence, two verified diffs, and a recorded walkthrough.</p></li>
+</ol>
+</section>
+<section class="section">
+<div class="section-head">
+<h2>Questions</h2>
+<p>The short answers. If yours is not here, email me and I will answer it before you commit to anything.</p>
+</div>
+<div class="faq">
+<details><summary>What counts as a finding?</summary><p>A specific place in your repository where the migration will break or cost more than it should. Each finding cites a file and line, a severity, and an effort estimate.</p></details>
+<details><summary>Which stacks do you audit?</summary><p>Python and TypeScript, including Django, Flask, FastAPI, React, Next.js, and Node services. I do not take PHP, Ruby, or .NET work.</p></details>
+<details><summary>Do you change my code?</summary><p>No. I copy the repository into a sandbox and work there. The report includes two verified sample diffs. Applying them is your call.</p></details>
+<details><summary>What if you find nothing material?</summary><p>You get the evidence and a short note saying so. I do not invent findings to fill a report.</p></details>
+<details><summary>How is my code handled?</summary><p>Client code is copied into a sandbox, never edited in place. Job data is deleted 30 days after delivery unless you ask me to keep it.</p></details>
+<details><summary>How do I start?</summary><p>Email the repository URL and the commit you care about. I confirm scope and price before you pay.</p></details>
+</div>
+</section>
+<section class="closing">
+<h2>Have a migration coming?</h2>
+<p>Send the repository URL and the commit. I will confirm scope and price before you pay.</p>
+<p><a class="cta" href="mailto:engida32lishan@gmail.com?subject=Migration%20audit">Send me your repo</a></p>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><span>Engida &middot; Addis Ababa</span><a href="mailto:engida32lishan@gmail.com">engida32lishan@gmail.com</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Django 3.2 to 4.2 audit sample | Migration Readiness Audit</title>
+<meta name="description" content="A redacted Django 3.2 to 4.2 migration sample: 14 findings, two verified diffs, and the project test suite still passing.">
+<link rel="canonical" href="https://engida32.github.io/migration-audit-site/sample.html">
+<meta property="og:site_name" content="Migration Readiness Audit">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Django 3.2 to 4.2 audit sample">
+<meta property="og:description" content="14 findings, two verified diffs, and the project test suite still passing. Repository names and paths are redacted.">
+<meta property="og:url" content="https://engida32.github.io/migration-audit-site/sample.html">
+<meta property="og:image" content="https://engida32.github.io/migration-audit-site/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Migration Readiness Audit: know what breaks before your framework does.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Django 3.2 to 4.2 audit sample">
+<meta name="twitter:description" content="14 findings, two verified diffs, and the project test suite still passing. Repository names and paths are redacted.">
+<meta name="twitter:image" content="https://engida32.github.io/migration-audit-site/assets/og-card.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Migration Readiness Audit",
+  "url": "https://engida32.github.io/migration-audit-site/sample.html",
+  "description": "A redacted Django 3.2 to 4.2 migration sample with 14 findings, two verified diffs, and a passing test suite.",
+  "image": "https://engida32.github.io/migration-audit-site/assets/og-card.png",
+  "priceRange": "$650-$1,050"
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap header-inner">
+<a class="wordmark" href="index.html">Migration Readiness <span>Audit</span></a>
+<nav>
+<a href="index.html">Audit</a><a href="sample.html" aria-current="page">Sample</a><a href="pricing.html">Pricing</a><a href="about.html">About</a>
+</nav>
+</div></header>
+<main id="main" class="wrap">
+<p class="eyebrow">Redacted sample</p>
+<h1>Django 3.2 to 4.2: 14 findings, 6.5 days of remediation.</h1>
+<p class="lead">Baseline: <code>python -m pytest</code>, 148 passed. After the two sample fixes: 148 passed. Repository names and paths are redacted.</p>
+<p>Showing 2 of 14 findings.</p>
+<section class="section">
+<h2>Findings</h2>
+<div class="table-wrap">
+<table>
+<caption class="sr-only">Two of the fourteen findings</caption>
+<thead><tr><th scope="col">ID</th><th scope="col">Finding</th><th scope="col">Evidence</th><th scope="col">Severity</th></tr></thead>
+<tbody>
+<tr><td data-label="ID">F-004</td><td data-label="Finding">distutils import removed in 3.12</td><td data-label="Evidence">app/legacy.py:12</td><td data-label="Severity">high</td></tr>
+<tr><td data-label="ID">F-009</td><td data-label="Finding">assertEquals removed in Python 3.12</td><td data-label="Evidence">app/tests.py:44</td><td data-label="Severity">low</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section">
+<h2>Sample diff one</h2>
+<pre><code>- import distutils
++ from packaging import version</code></pre>
+<p>Verified: full suite still 148 passed.</p>
+<h2>Sample diff two</h2>
+<pre><code>- self.assertEquals(a, b)
++ self.assertEqual(a, b)</code></pre>
+<p>Verified: full suite still 148 passed.</p>
+</section>
+<section class="closing">
+<h2>Want this for your repo?</h2>
+<p>Send the repository URL and the commit. I will confirm scope and price before you pay.</p>
+<p><a class="cta" href="mailto:engida32lishan@gmail.com?subject=Migration%20audit">Request the same for your repo</a></p>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><span>Engida &middot; Addis Ababa</span><a href="mailto:engida32lishan@gmail.com">engida32lishan@gmail.com</a></div></footer>
+</body>
+</html>

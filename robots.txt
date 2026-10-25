@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://engida32.github.io/migration-audit-site/sitemap.xml
