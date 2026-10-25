@@ -40,6 +40,7 @@ class Doc(HTMLParser):
         self.twitter = {}
         self.robots = []
         self.details = 0
+        self.base = None
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -95,6 +96,8 @@ class Doc(HTMLParser):
                 self.labelled_cells += 1
         if tag == "details":
             self.details += 1
+        if tag == "base":
+            self.base = attrs.get("href")
 
 
 def parse(name):
@@ -298,6 +301,18 @@ def test_404_is_real_and_noindex():
     assert doc.robots and "noindex" in doc.robots[0]
     assert not doc.canonicals
     assert 'href="index.html"' in text("404.html")
+
+
+def test_404_assets_resolve_from_deep_paths():
+    doc = parse("404.html")
+    assert doc.base == "/migration-audit-site/"
+    for ref in doc.refs:
+        if ref.startswith(("mailto:", "#")):
+            continue
+        assert not ref.startswith(("http://", "https://")), ref
+        joined = doc.base + ref
+        target = (SITE / joined[len(doc.base):]).resolve()
+        assert target.is_file(), ref
 
 
 def test_social_card_is_a_real_png():

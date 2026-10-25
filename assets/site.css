@@ -285,6 +285,9 @@ footer {
     to { opacity: 1; transform: translateY(0); }
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; gap: 28px; }
   .hero-copy, .marginalia { grid-column: 1; }
